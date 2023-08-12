@@ -14,14 +14,23 @@ export default class Node extends Component {
       onMouseUp,
       row,
     } = this.props;
-    const extraClassName = isFinish
-      ? "node-finish"
-      : isStart
-      ? "node-start"
-      : isWall
-      ? "node-wall"
-      : "";
-
+    
+    // const extraClassName = isFinish
+    //   ? "node-finish"
+    //   : isStart
+    //   ? "node-start"
+    //   : isWall
+    //   ? "node-wall"
+    //   : "";
+    // this is alternaive for ternary operator.
+      let extraClassName = "";
+      if (isFinish) {
+        extraClassName = "node-finish";
+      } else if (isStart) {
+        extraClassName = "node-start";
+      } else if (isWall) {
+        extraClassName = "node-wall";
+      }
     return (
       <div
         id={`node-${row}-${col}`}
